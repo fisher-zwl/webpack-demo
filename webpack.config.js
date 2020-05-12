@@ -65,7 +65,7 @@ module.exports = {
         exclude: path.resolve(__dirname, 'node_modules'), // 也可以是路径数组 数组里的每项之间是或的关系，即文件路径符合数组中的任何一个条件就会被命中
       },
       {
-        test: /\.css$/,
+        test: /(\.css|\.less)$/,
         use: [ // 下面俩者可把样式表嵌入webpack打包后的JS文件
           {
               loader: "style-loader" // css-loader使你能够使用类似@import 和 url(...)的方法实现 require()的功能
@@ -81,9 +81,9 @@ module.exports = {
           },
           {
             loader: "postcss-loader"
-          }
+          },
         ]
-      }
+      },
     ]
   },
   // 插件配置，webpack强大的插件机制
